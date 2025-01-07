@@ -1,9 +1,12 @@
-from src.Red_Wine import logger
+from Red_Wine import logger
+from Red_Wine.pipeline.stage01_data_ingestion import DataIngestionTrainingPipeline
 
-logger.info("My name is Pradeep")
-logger.info("working on ml project")
-
-from box import ConfigBox
-
-data = ConfigBox({"name": "example"})
-print(data.name)  
+STAGE_NAME = "Data Ingestion stage"
+try:
+   logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
+   data_ingestion = DataIngestionTrainingPipeline()
+   data_ingestion.main()
+   logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+        logger.exception(e)
+        raise e
