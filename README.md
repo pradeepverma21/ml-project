@@ -24,3 +24,7 @@ conda activate mlproj
 ```base
 pip install requirements.txt
 ```
+
+```base
+run app.py
+```
